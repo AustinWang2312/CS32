@@ -49,6 +49,9 @@ bool Vampire::isDead() const
 
 void Vampire::move()
 {
+    if (m_health == 1)
+        m_arena->history().record(m_row, m_col);
+
     if (m_idleTurnsRemaining > 0)
     {
         m_idleTurnsRemaining--;

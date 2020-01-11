@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		910DC3BF23C6DD2C00FA289F /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 910DC3BE23C6DD2C00FA289F /* Player.cpp */; };
 		910DC3C223C6DE8F00FA289F /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 910DC3C123C6DE8F00FA289F /* Game.cpp */; };
+		910DC3C523C940A600FA289F /* History.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 910DC3C423C940A600FA289F /* History.cpp */; };
 		915A958E23C69FC700ABDDA9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 915A958D23C69FC700ABDDA9 /* main.cpp */; };
 		915A959823C6ADEA00ABDDA9 /* Vampire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 915A959623C6ADEA00ABDDA9 /* Vampire.cpp */; };
 		915A959B23C6B19600ABDDA9 /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 915A959923C6B19600ABDDA9 /* utilities.cpp */; };
@@ -31,6 +32,8 @@
 		910DC3BE23C6DD2C00FA289F /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		910DC3C023C6DE2600FA289F /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		910DC3C123C6DE8F00FA289F /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		910DC3C323C9221C00FA289F /* History.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
+		910DC3C423C940A600FA289F /* History.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = History.cpp; sourceTree = "<group>"; };
 		915A958A23C69FC700ABDDA9 /* Assignment1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assignment1; sourceTree = BUILT_PRODUCTS_DIR; };
 		915A958D23C69FC700ABDDA9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		915A959623C6ADEA00ABDDA9 /* Vampire.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vampire.cpp; sourceTree = "<group>"; };
@@ -78,11 +81,13 @@
 				915A959C23C6B2D200ABDDA9 /* Arena.cpp */,
 				910DC3BE23C6DD2C00FA289F /* Player.cpp */,
 				910DC3C123C6DE8F00FA289F /* Game.cpp */,
+				910DC3C423C940A600FA289F /* History.cpp */,
 				915A959723C6ADEA00ABDDA9 /* Vampire.h */,
 				915A959E23C6B2E100ABDDA9 /* Arena.h */,
 				915A959F23C6B98500ABDDA9 /* Player.h */,
 				915A959A23C6B19600ABDDA9 /* globals.h */,
 				910DC3C023C6DE2600FA289F /* Game.h */,
+				910DC3C323C9221C00FA289F /* History.h */,
 			);
 			path = Assignment1;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				910DC3C223C6DE8F00FA289F /* Game.cpp in Sources */,
 				915A958E23C69FC700ABDDA9 /* main.cpp in Sources */,
 				910DC3BF23C6DD2C00FA289F /* Player.cpp in Sources */,
+				910DC3C523C940A600FA289F /* History.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -87,6 +87,12 @@ string Game::takePlayerTurn()
         {
             if (tolower(playerMove[0]) == 'x')
                 return player->dropPoisonVial();
+            else if(tolower(playerMove[0]) == 'h')
+            {
+                m_arena->history().display();
+                return "Press enter to continue.";
+            }
+            
             else if (decodeDirection(playerMove[0], dir))
                 return player->move(dir);
         }
@@ -103,9 +109,18 @@ void Game::play()
     while ( ! player->isDead()  &&  m_arena->vampireCount() > 0)
     {
         string msg = takePlayerTurn();
+        if (msg=="Press enter to continue.")
+        {
+            cout << "Press enter to continue.";
+            cin.ignore(10000,'\n');
+            m_arena->display("");
+            continue;
+        }
         m_arena->display(msg);
+        
         if (player->isDead())
             break;
+        
         m_arena->moveVampires();
         m_arena->display(msg);
     }

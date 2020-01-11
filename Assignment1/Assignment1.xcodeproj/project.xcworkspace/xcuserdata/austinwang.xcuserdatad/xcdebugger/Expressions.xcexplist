@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__read_nocancel:(null)">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_grid">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "History::display() const:History.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "m_grid[r-1][c-1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

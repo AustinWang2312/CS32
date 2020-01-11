@@ -10,11 +10,13 @@
 #include "Player.h"
 #include "Vampire.h"
 #include "globals.h"
+#include "History.h"
 #include <string>
 #include <iostream>
 using namespace std;
 void clearScreen();
 Arena::Arena(int nRows, int nCols)
+:m_rows(nRows),m_cols(nCols),m_player(nullptr),m_history(nRows,nCols),m_nVampires(0),m_turns(0)
 {
     if (nRows <= 0  ||  nCols <= 0  ||  nRows > MAXROWS  ||  nCols > MAXCOLS)
     {
@@ -22,11 +24,7 @@ Arena::Arena(int nRows, int nCols)
              << nCols << "!" << endl;
         exit(1);
     }
-    m_rows = nRows;
-    m_cols = nCols;
-    m_player = nullptr;
-    m_nVampires = 0;
-    m_turns = 0;
+
     for (int r = 1; r <= m_rows; r++)
         for (int c = 1; c <= m_cols; c++)
             setCellStatus(r, c, EMPTY);
@@ -38,7 +36,10 @@ Arena::~Arena()
         delete m_vampires[k];
     delete m_player;
 }
-
+History& Arena::history()
+{
+    return m_history;
+}
 int Arena::rows() const
 {
     return m_rows;
@@ -214,41 +215,5 @@ void Arena::checkPos(int r, int c, string functionName) const
         exit(1);
     }
 }
-#ifdef _MSC_VER  //  Microsoft Visual C++
 
-#pragma warning(disable : 4005)
-#include <windows.h>
-
-void clearScreen()
-{
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    CONSOLE_SCREEN_BUFFER_INFO csbi;
-    GetConsoleScreenBufferInfo(hConsole, &csbi);
-    DWORD dwConSize = csbi.dwSize.X * csbi.dwSize.Y;
-    COORD upperLeft = { 0, 0 };
-    DWORD dwCharsWritten;
-    FillConsoleOutputCharacter(hConsole, TCHAR(' '), dwConSize, upperLeft,
-                                                        &dwCharsWritten);
-    SetConsoleCursorPosition(hConsole, upperLeft);
-}
-
-#else  // not Microsoft Visual C++, so assume UNIX interface
-
-#include <iostream>
-#include <cstring>
-#include <cstdlib>
-
-void clearScreen()  // will just write a newline in an Xcode output window
-{
-    static const char* term = getenv("TERM");
-    if (term == nullptr  ||  strcmp(term, "dumb") == 0)
-        cout << endl;
-    else
-    {
-        static const char* ESC_SEQ = "\x1B[";  // ANSI Terminal esc seq:  ESC [
-        cout << ESC_SEQ << "2J" << ESC_SEQ << "H" << flush;
-    }
-}
-
-#endif
 

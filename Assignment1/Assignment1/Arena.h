@@ -9,6 +9,7 @@
 #ifndef Arena_h
 #define Arena_h
 #include "globals.h"
+#include "History.h"
 #include <string>
 class Player;
 class Vampire;
@@ -28,6 +29,7 @@ class Arena
     int     getCellStatus(int r, int c) const;
     int     numberOfVampiresAt(int r, int c) const;
     void    display(std::string msg) const;
+    History& history();
 
       // Mutators
     void setCellStatus(int r, int c, int status);
@@ -41,6 +43,7 @@ class Arena
     int      m_cols;
     Player*  m_player;
     Vampire* m_vampires[MAXVAMPIRES];
+    History m_history;
     int      m_nVampires;
     int      m_turns;
 
