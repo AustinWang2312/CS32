@@ -9,10 +9,9 @@
 #include "Arena.h"
 #include "Player.h"
 #include "Vampire.h"
-#include "globals.h"
-#include "History.h"
 #include <string>
 #include <iostream>
+class History;
 using namespace std;
 void clearScreen();
 Arena::Arena(int nRows, int nCols)

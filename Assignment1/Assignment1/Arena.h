@@ -8,8 +8,8 @@
 
 #ifndef Arena_h
 #define Arena_h
-#include "globals.h"
 #include "History.h"
+#include "globals.h"
 #include <string>
 class Player;
 class Vampire;

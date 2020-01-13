@@ -8,9 +8,7 @@
 
 #include "Vampire.h"
 #include "Arena.h"
-#include "globals.h"
 #include <iostream>
-class Arena;
 using namespace std;
 Vampire::Vampire(Arena* ap, int r, int c)
 {

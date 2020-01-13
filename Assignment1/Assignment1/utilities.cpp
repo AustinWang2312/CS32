@@ -7,7 +7,6 @@
 //
 
 #include "Arena.h"
-#include "globals.h"
 #include <iostream>
 #include <random>
 using namespace std;

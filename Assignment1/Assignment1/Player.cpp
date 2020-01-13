@@ -9,7 +9,6 @@
 #include <stdio.h>
 #include "Player.h"
 #include "Arena.h"
-#include "globals.h"
 #include <iostream>
 using namespace std;
 

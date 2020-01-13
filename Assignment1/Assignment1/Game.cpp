@@ -10,7 +10,6 @@
 #include "Game.h"
 #include "Arena.h"
 #include "Player.h"
-#include "globals.h"
 #include <iostream>
 using namespace std;
 Game::Game(int rows, int cols, int nVampires)
@@ -87,7 +86,7 @@ string Game::takePlayerTurn()
         {
             if (tolower(playerMove[0]) == 'x')
                 return player->dropPoisonVial();
-            else if(tolower(playerMove[0]) == 'h')
+            else if(playerMove[0] == 'h')
             {
                 m_arena->history().display();
                 return "Press enter to continue.";
