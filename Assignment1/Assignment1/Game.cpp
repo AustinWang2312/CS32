@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include "Game.h"
 #include "Arena.h"
+#include "globals.h"
+#include "History.h"
 #include "Player.h"
 #include <iostream>
 using namespace std;

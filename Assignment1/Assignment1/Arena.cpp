@@ -7,13 +7,13 @@
 //
 
 #include "Arena.h"
+#include "globals.h"
+#include "History.h"
 #include "Player.h"
 #include "Vampire.h"
 #include <string>
 #include <iostream>
-class History;
 using namespace std;
-void clearScreen();
 Arena::Arena(int nRows, int nCols)
 :m_rows(nRows),m_cols(nCols),m_player(nullptr),m_history(nRows,nCols),m_nVampires(0),m_turns(0)
 {
