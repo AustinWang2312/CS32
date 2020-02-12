@@ -21,7 +21,7 @@ class Map
     }
     Map(const Map &src)
     {
-        m_list.m_size=src.m_list.m_size;
+        m_list.m_size=0;
         Node *p_src=src.m_list.dummy_ptr;
         while (p_src->next!=src.m_list.dummy_ptr)
         {
@@ -42,16 +42,6 @@ class Map
             get(0, k, v);
             erase(k);
         }
-        /*
-        Node *p=m_list.dummy_ptr->next;
-        while (p!=m_list.dummy_ptr)
-        {
-            Node *tmp=p->next;
-            delete p;
-            p=tmp;
-        }
-         */
-        //m_list.m_size=0;
         Node *p_src=src.m_list.dummy_ptr;
         while (p_src->next!=src.m_list.dummy_ptr)
         {
@@ -83,6 +73,7 @@ class Map
     void swap(Map& other);
     void dump() const;
     
+    
 private:
     struct Node
     {
@@ -100,28 +91,13 @@ private:
             dummy_ptr->prev=dummy_ptr;
             m_size=0;
         }
-        /*
-        ~LinkedList()
-        {
-            
-            Node *p=dummy_ptr->next;
-            while (p!=dummy_ptr)
-            {
-                Node *tmp=p->next;
-                delete p;
-                p=tmp;
-            }
-        }
-         **/
+        
         bool addToRear(KeyType key, ValueType value)
         {
             if (isKey(key))
             {
                 return false;
             }
-            //Node *p=dummy_ptr->next;
-            //while(p->next!=dummy_ptr)
-            //    p=p->next;
             Node *p=dummy_ptr->prev;
             Node *n= new Node;
             n->m_key=key;
@@ -248,6 +224,9 @@ private:
     
     LinkedList m_list;
 };
+void reassign(const Map& m, Map& result);
+bool combine(const Map& m1, const Map& m2, Map& result);
+
 
 #endif /* Map_h */
 

@@ -11,9 +11,7 @@
 void Map::dump() const
 {
     m_list.printItems();
-
 }
-
 
 bool Map::empty() const
 {
@@ -24,6 +22,7 @@ int Map::size() const
 {
     return m_list.size();
 }
+
 bool Map::insert(const KeyType& key, const ValueType& value)
 {
     return m_list.addToRear(key, value);
@@ -46,11 +45,11 @@ bool Map::erase(const KeyType& key)
 {
     return m_list.deleteItem(key);
 }
+
 bool Map::contains(const KeyType& key) const
 {
     return m_list.isKey(key);
 }
-
 
 bool Map::get(const KeyType& key, ValueType& value) const
 {
@@ -71,33 +70,6 @@ void Map::swap(Map& other)
 
 bool combine(const Map& m1, const Map& m2, Map& result)
 {
-    /*
-    int nCount=0;
-    if(!result.empty())
-    {
-        int count=0;
-        int size=result.size();
-        while (count < size)
-        {
-            KeyType k;
-            ValueType v;
-            result.get(count, k, v);
-            result.erase(k);
-            count++;
-        }
-    }
-     
-    
-    
-    while(nCount<m1.size())
-    {
-        KeyType k;
-        ValueType v;
-        m1.get(nCount, k, v);
-        result.insert(k, v);
-        nCount++;
-    }
-    */
     result=m1;
     bool can_Combine=true;
     int nCount=0;
@@ -120,4 +92,35 @@ bool combine(const Map& m1, const Map& m2, Map& result)
     return can_Combine;
 }
 
-void reassign(const Map& m, Map& result);
+void reassign(const Map& m, Map& result)
+{
+    result=m;
+    if (result.empty())
+    {
+        return;
+    }
+    if (result.size()==1)
+    {
+        return;
+    }
+    KeyType initial_k;
+    ValueType initial_v;
+    result.get(0, initial_k, initial_v);
+    for (int i=1;i<result.size();i++)
+    {
+        KeyType k1;
+        ValueType v1;
+        
+        KeyType k2;
+        ValueType v2;
+        
+        result.get(i-1, k1, v1);
+        result.get(i,k2,v2);
+        
+        result.update(k1,v2);
+    }
+    KeyType final_k;
+    ValueType final_v;
+    result.get(result.size()-1,final_k,final_v);
+    result.update(final_k,initial_v);
+}

@@ -1,0 +1,232 @@
+Austin Wang
+Project 2
+
+Doubly linked list implementation:
+
+The data structure used was a  circular doubly linked list with a dummy node. At the start, the dummy node pointer points to itself. 
+As objects are added, the next and prev pointers of the dummy node pointer are updated.
+Note the structure is circular and doubly linked meaning every node can access the node before and after itself AND
+the final node points back to the dummy node pointer instead of null pointer.
+
+Pseudocode for non-trivial algorithms:
+
+addToRear (used in insert/insertOrUpdate):
+
+if key already in list
+	return false
+allocate/initialize new node with key and value
+(Assignment)
+node of tail next points to new node
+dummy ptr prev points to new node
+new node prev points to previous tail
+new node next points to dummy node
+return true
+
+
+deleteItem (used in Erase):
+if key not in list
+	return false
+set pointer p to dummy node
+Loop: while the next node isn't dummy node
+	if next node's key is equal to passed in parameter
+		new pointer kill points to next node
+		current node next points to kill pointers next node
+		next nodes prev pointer points to current pointer
+		delete object
+		reduce size
+		return true
+	move to next node
+return false
+
+
+
+reassign:
+set result to m (assignment operator)
+if empty
+	return
+if size of result is 1
+	return
+get key and value of first node
+loop for result.size-1 times: start at 2nd node
+	get previous node's key
+	get current node's value
+	update previous node to current node value
+set final node's value to first nodes value
+
+	
+
+combine:
+set result equal to map1
+set bool var to true
+loop through map2's nodes:
+	get map2 node's key and value
+	if map1 also has a node with same key AND has different value
+		set bool var to false
+	else if map1 doesn't have a node with same key
+		insert map2's node
+return bool var
+
+Test cases:
+
+void makeMap()
+{
+    Map *t=new Map();
+    delete t;
+}
+int main() {
+
+    makeMap();
+    //Test for memory links with g32
+
+	Map *i = new Map();
+    i->dump();
+	//dynamically create a map cuz why not?
+
+    std::cerr << i->empty()<<std::endl;
+	//check if empty at creation
+
+    assert(i->insert("test", 1));
+    assert(i->insert("test2", 1));
+    assert(i->insert("test2", 1)==false);
+	//test map's insert function tests for redundant insertion
+
+    assert(i->update("test2", 2));
+    assert(i->update("testnot", 2)==false);
+	//basic tests for update, tests if you can update a nonexistent key
+
+    assert(i->insertOrUpdate("test2", 3));
+	//tests insert or update
+
+    assert(i->contains("test")==true && i->contains("testnot")==false);
+	//tests functionality for contains
+
+    assert(i->erase("test"));
+    i->dump();
+	//tests erase function
+
+    std::cerr<<"done"<<std::endl;
+    assert(i->insertOrUpdate("test3", 0));
+    assert(i->insertOrUpdate("test4", 0));
+    i->dump();
+	//tests insert or update with new keys
+
+    assert(i->erase("test3"));
+    i->dump();
+	//tests erase with newly created node
+
+
+    assert(i->erase("test4"));
+    assert(i->erase("test2"));
+    assert(i->empty());
+	//tests erase rigorously to delete all nodes
+
+    assert(i->insert("newtest1", 1));
+    assert(i->insert("newtest1", 2)==false);
+    assert(i->insert("newtest2", 1));
+    assert(i->size()==2);
+	//test if after deletion, more nodes can be inserted
+
+    
+    ValueType v;
+    assert(i->get("newtest1", v)&&v==1);
+    assert(i->get("newtest2", v)&&v==1);
+    assert(i->get("newtestnot", v)==false);
+    //tests get functionality as well as nonexistent key
+	
+
+    KeyType k;
+    assert(i->get(0,k,v)&&v==1);
+    assert(i->get(1,k,v)&&v==1);
+    assert(i->get(2,k,v)==false);
+    assert(i->get(-22,k,v)==false);
+    i->dump();
+    std::cerr<<"end of i"<<std::endl;
+	//tests alternative get functionality and gives bad parameter for i
+
+
+    Map *j=new Map();
+    *j=*i;
+    j->dump();
+	//tests assignment operator
+	
+    j->erase("newtest1");
+    std::cerr<<"end of j"<<std::endl;
+    i->dump();
+	//tests erase when deleting from a recently assigned j.
+
+    Map a;
+    a.insert("a1", 0);
+    a.insert("a1", 0);
+    a.insert("a2", 1);
+    Map b(a);
+    assert(b.size()==2);
+    b.swap(a);
+    assert(b.size()==2);
+    Map c;
+    c.swap(b);
+    assert(b.size()==0);
+    assert(c.size()==2);
+	//tests swap and copy constructor
+
+    delete i;
+    delete j;
+    
+    
+    Map part1;
+    Map part2;
+    Map combineMap;
+    part1.insert("u1", 0);
+    part1.insert("u2", 0);
+    part1.insert("u3", 0);
+    part1.insert("r1", 0);
+    part2.insert("v1", 0);
+    part2.insert("v2", 0);
+    part2.insert("v3", 0);
+    part2.insert("r1", 0);
+    combine(part1, part2, combineMap);
+    combine(part1, part2, combineMap);
+    combine(part1, part2, combineMap);
+    combine(part1, part2, combineMap);
+    combineMap.dump();
+	//rigorously tests combine functionality
+    
+    part1.insert("v1", 0);
+    part1.insert("v2", 1);
+    assert(!combine(part1,part2,combineMap));
+    //test for same key different value
+    
+    combineMap.dump();
+
+    combineMap=a;
+    combineMap.dump();
+    //test assignment operator again
+
+	assert(combineMap.size()==2);
+    part1.dump();
+    part2.dump();
+	//tests to verify combineMap didn't modify extra    
+
+    Map re;
+    re.insert("u1", 0);
+    re.insert("u2", 1);
+    re.insert("u3", 2);
+    re.insert("u4", 3);
+    re.insert("u4", 4);
+    reassign(re,re);
+	//tests reassign with itself as both parameters
+
+    re.dump();
+
+    Map re2;
+    reassign(re, re2);
+    re2.dump();
+	//tests reassign with two different maps
+
+    Map re3(re2);
+    re3.dump();
+    re3.insert("test", 0);
+    assert(re3.size()==5);
+	//tests copy constructor of reassigned Map 
+
+
+

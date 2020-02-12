@@ -9,18 +9,17 @@
 #include <iostream>
 #include "Map.h"
 #include <cassert>
-bool combine(const Map& m1, const Map& m2, Map& result);
+
 void makeMap()
 {
     Map *t=new Map();
     delete t;
 }
 int main() {
-    // insert code here...
     makeMap();
     Map *i = new Map();
-    //i->dump();
-//    std::cerr << i->empty()<<std::endl;
+    i->dump();
+    std::cerr << i->empty()<<std::endl;
     assert(i->insert("test", 1));
     assert(i->insert("test2", 1));
     assert(i->insert("test2", 1)==false);
@@ -29,11 +28,11 @@ int main() {
     assert(i->insertOrUpdate("test2", 3));
     assert(i->contains("test")==true && i->contains("testnot")==false);
     assert(i->erase("test"));
-    //i->dump();
-    //std::cerr<<"done"<<std::endl;
+    i->dump();
+    std::cerr<<"done"<<std::endl;
     assert(i->insertOrUpdate("test3", 0));
     assert(i->insertOrUpdate("test4", 0));
-    //i->dump();
+    i->dump();
     assert(i->erase("test3"));
     
     //i->dump();
@@ -57,21 +56,28 @@ int main() {
     assert(i->get(-22,k,v)==false);
 
 
-    //i->dump();
-    //std::cerr<<"end of i"<<std::endl;
+    i->dump();
+    std::cerr<<"end of i"<<std::endl;
     Map *j=new Map();
     *j=*i;
-    //j->dump();
+    j->dump();
     j->erase("newtest1");
-    //std::cerr<<"end of j"<<std::endl;
-    //i->dump();
+    std::cerr<<"end of j"<<std::endl;
+    i->dump();
     Map a;
     a.insert("a1", 0);
     a.insert("a1", 0);
     a.insert("a2", 1);
     Map b(a);
+    assert(b.size()==2);
     b.swap(a);
-    //b.dump();
+    assert(b.size()==2);
+    Map c;
+    c.swap(b);
+    assert(b.size()==0);
+    assert(c.size()==2);
+    b.dump();
+    
     delete i;
     delete j;
     
@@ -92,7 +98,7 @@ int main() {
     combine(part1, part2, combineMap);
     combine(part1, part2, combineMap);
     combine(part1, part2, combineMap);
-    //combineMap.dump();
+    combineMap.dump();
     
     part1.insert("v1", 0);
     part1.insert("v2", 1);
@@ -102,6 +108,26 @@ int main() {
     combineMap.dump();
     combineMap=a;
     combineMap.dump();
-    //part1.dump();
-    //part2.dump();
+    assert(combineMap.size()==2);
+    part1.dump();
+    part2.dump();
+    
+    Map re;
+    re.insert("u1", 0);
+    re.insert("u2", 1);
+    re.insert("u3", 2);
+    re.insert("u4", 3);
+    re.insert("u4", 4);
+    reassign(re,re);
+    re.dump();
+    
+    Map re2;
+    reassign(re, re2);
+    re2.dump();
+    
+    Map re3(re2);
+    
+    re3.dump();
+    re3.insert("test", 0);
+    assert(re3.size()==5);
 }
