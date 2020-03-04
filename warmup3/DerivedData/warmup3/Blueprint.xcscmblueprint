@@ -1,0 +1,23 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "45079ED5033EFF00928D5D16F57397BF49D59746",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "45079ED5033EFF00928D5D16F57397BF49D59746" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A54CB4CD-2CAF-4559-BC07-CDF9B0E69AF2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "45079ED5033EFF00928D5D16F57397BF49D59746" : "CS32\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "warmup3",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "warmup3\/warmup3.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/AustinWang2312\/CS32",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "45079ED5033EFF00928D5D16F57397BF49D59746"
+    }
+  ]
+}

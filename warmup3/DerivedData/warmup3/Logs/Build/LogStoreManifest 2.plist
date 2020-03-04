@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>85D87A9D-5E5F-4193-8327-4C7EAEE5DA69</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>85D87A9D-5E5F-4193-8327-4C7EAEE5DA69.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>warmup3 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>warmup3</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build warmup3</string>
+			<key>timeStartedRecording</key>
+			<real>603778161.495224</real>
+			<key>timeStoppedRecording</key>
+			<real>603778162.78327</real>
+			<key>title</key>
+			<string>Build warmup3</string>
+			<key>uniqueIdentifier</key>
+			<string>85D87A9D-5E5F-4193-8327-4C7EAEE5DA69</string>
+		</dict>
+		<key>9113A0EE-C5C4-4F45-A50B-124D207DFD22</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>9113A0EE-C5C4-4F45-A50B-124D207DFD22.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>warmup3 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>warmup3</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build warmup3</string>
+			<key>timeStartedRecording</key>
+			<real>603778143.43214202</real>
+			<key>timeStoppedRecording</key>
+			<real>603778145.88720202</real>
+			<key>title</key>
+			<string>Build warmup3</string>
+			<key>uniqueIdentifier</key>
+			<string>9113A0EE-C5C4-4F45-A50B-124D207DFD22</string>
+		</dict>
+		<key>BC10ECCC-9710-4C03-AA1A-58B5172B9A4A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BC10ECCC-9710-4C03-AA1A-58B5172B9A4A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>warmup3 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>warmup3</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build warmup3</string>
+			<key>timeStartedRecording</key>
+			<real>603778166.49045801</real>
+			<key>timeStoppedRecording</key>
+			<real>603778167.38713098</real>
+			<key>title</key>
+			<string>Build warmup3</string>
+			<key>uniqueIdentifier</key>
+			<string>BC10ECCC-9710-4C03-AA1A-58B5172B9A4A</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

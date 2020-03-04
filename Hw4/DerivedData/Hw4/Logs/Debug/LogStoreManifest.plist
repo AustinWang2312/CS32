@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>091971B4-728E-4E95-B029-B7C4A6777791</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>091971B4-728E-4E95-B029-B7C4A6777791.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Hw4 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Hw4</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Hw4</string>
+			<key>timeStartedRecording</key>
+			<real>604888891.29967904</real>
+			<key>timeStoppedRecording</key>
+			<real>604888902.69807696</real>
+			<key>title</key>
+			<string>Debug Hw4</string>
+			<key>uniqueIdentifier</key>
+			<string>091971B4-728E-4E95-B029-B7C4A6777791</string>
+		</dict>
+		<key>1A13CC46-8C1F-4534-87E5-80DFCA521333</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>1A13CC46-8C1F-4534-87E5-80DFCA521333.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Hw4 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Hw4</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Hw4</string>
+			<key>timeStartedRecording</key>
+			<real>604888962.398206</real>
+			<key>timeStoppedRecording</key>
+			<real>604888963.57353103</real>
+			<key>title</key>
+			<string>Debug Hw4</string>
+			<key>uniqueIdentifier</key>
+			<string>1A13CC46-8C1F-4534-87E5-80DFCA521333</string>
+		</dict>
+		<key>3B0052CB-65D7-4375-ACA8-E854E9F2EBCC</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3B0052CB-65D7-4375-ACA8-E854E9F2EBCC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Hw4 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Hw4</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Hw4</string>
+			<key>timeStartedRecording</key>
+			<real>604888904.81201398</real>
+			<key>timeStoppedRecording</key>
+			<real>604888905.97562301</real>
+			<key>title</key>
+			<string>Debug Hw4</string>
+			<key>uniqueIdentifier</key>
+			<string>3B0052CB-65D7-4375-ACA8-E854E9F2EBCC</string>
+		</dict>
+		<key>977CFDFD-CCE1-4AA4-AEC2-AB47363B02CF</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>977CFDFD-CCE1-4AA4-AEC2-AB47363B02CF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Hw4 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Hw4</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Hw4</string>
+			<key>timeStartedRecording</key>
+			<real>604889123.12144101</real>
+			<key>timeStoppedRecording</key>
+			<real>604889125.91532195</real>
+			<key>title</key>
+			<string>Debug Hw4</string>
+			<key>uniqueIdentifier</key>
+			<string>977CFDFD-CCE1-4AA4-AEC2-AB47363B02CF</string>
+		</dict>
+		<key>98250663-4F37-4DE4-BB7E-920AA80DEE9D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>98250663-4F37-4DE4-BB7E-920AA80DEE9D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Hw4 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Hw4</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Hw4</string>
+			<key>timeStartedRecording</key>
+			<real>604888983.52118003</real>
+			<key>timeStoppedRecording</key>
+			<real>604888986.44678497</real>
+			<key>title</key>
+			<string>Debug Hw4</string>
+			<key>uniqueIdentifier</key>
+			<string>98250663-4F37-4DE4-BB7E-920AA80DEE9D</string>
+		</dict>
+		<key>BCD0A16A-00CB-4C5E-85B5-7CB5BC96AC27</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>BCD0A16A-00CB-4C5E-85B5-7CB5BC96AC27.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Hw4 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Hw4</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Hw4</string>
+			<key>timeStartedRecording</key>
+			<real>604888965.20685005</real>
+			<key>timeStoppedRecording</key>
+			<real>604888966.26944697</real>
+			<key>title</key>
+			<string>Debug Hw4</string>
+			<key>uniqueIdentifier</key>
+			<string>BCD0A16A-00CB-4C5E-85B5-7CB5BC96AC27</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

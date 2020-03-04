@@ -1,0 +1,61 @@
+Austin Wang
+605 381 322
+
+HW4:
+
+Question 2:
+
+Map<Coord, int>::insert causes an error because Maps are ordered and therefore
+any insertion of another class (which uses this maps "find function") needs to 
+have a != comparison operator defined for that class. 
+Because the Coord class is on the left side (it's a key), it requires an 
+operator method so that the map can insert the coordinate in a sorted manner. 
+
+Question 3:
+
+a. O(N^3)
+Here we have three loops, each iterating N times.
+Since they are nested in each other, (for loop inside for loop inside for loop)
+we multiply their times. N*N*N will be N^3. The k loop iterates N times which
+gets multiplied by the j loop which iterates N times which gets multipled by 
+the i loop which iterates N times.
+
+
+b. O(N^3)
+This is almost the same situation as part a. However, we note that one of the 
+lops (for j) now has the loop limit of i instead of N. This just means that
+the j loop will iterate from the range: 0 to N times (averaging N/2 times).
+This effectively means it will loop N times (for the purposes of caluclating
+time complexity) since the coefficient isn't considered.
+
+numIntermediaries[j][i] = numIntermediaries[i][j] was also added which adds 
+an extra N^2 time to our time complexity (since it is outside the third nested
+k-loop). We get N^3*(1/2)+N^2. If we just remove the extra coefficients and 
+ignore lower orders, we get N^3 time still.
+
+Question 4:
+
+a. O(N^2)
+This has a loop of N depth and each time we loop through, we take N time
+to add an entry to the new temporary map. This loop has the most frequently
+occuring operation and is the highest order. Normally an STL map would take
+log N time to insert an item, but for this specific map, the find function
+used to insert an item is implemented linearly. Thus we take N time to add an
+item and we do this N times which results in a time complexity of N^2. We'll note
+that the swap function is in constant time since the only two things that happen
+are a swap of the head pointers and a swap of the sizes.
+
+
+b. O(N)
+In this, we iterate through N number of nodes where for each step, we access the next
+node once for the iteration step p=p->next and once more to reassign the value. Since
+accessing the next node of a pointer is a process that can be done in constant time,
+our total time complexity is just 2N which we can omit the coefficient from. The few
+other statements outside of the loop that access nodes are negligible as they are 
+performed in constant time. We'll notice that this function is significantly faster
+compared to the answer in 4a. This is O(N) while part a is O(N) which is mainly due
+to the inefficient method of reinserting every single item into a map as opposed to
+shifting each node's value by one and curling around.
+
+
+
