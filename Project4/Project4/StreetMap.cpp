@@ -1,7 +1,11 @@
 #include "provided.h"
+#include "ExpandableHashMap.h"
 #include <string>
 #include <vector>
 #include <functional>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 unsigned int hasher(const GeoCoord& g)
@@ -16,10 +20,13 @@ public:
     ~StreetMapImpl();
     bool load(string mapFile);
     bool getSegmentsThatStartWith(const GeoCoord& gc, vector<StreetSegment>& segs) const;
+private:
+    ExpandableHashMap<GeoCoord, std::vector<StreetSegment>> m_map;
 };
 
 StreetMapImpl::StreetMapImpl()
 {
+    load("mapdata.txt");
 }
 
 StreetMapImpl::~StreetMapImpl()
@@ -28,11 +35,106 @@ StreetMapImpl::~StreetMapImpl()
 
 bool StreetMapImpl::load(string mapFile)
 {
-    return false;  // Delete this line and implement this function correctly
+    ifstream inf(mapFile);
+    if(!inf)
+    {
+        return false;
+    }
+    string line;
+    while(getline(inf,line))
+    {
+        istringstream iss(line);
+        int numSeg;
+        string street;
+        string lat1;
+        string lon1;
+        string lat2;
+        string lon2;
+        
+        if (! (iss >> street))
+            return false;
+        street=line;
+        if(getline(inf,line))
+        {
+            istringstream iss(line);
+            if(! (iss >> numSeg))
+                return false;
+            int count=0;
+            while(count<numSeg && getline(inf,line))
+            {
+                istringstream iss(line);
+                if(! (iss >> lat1 >> lon1 >> lat2 >> lon2))
+                {
+                    return false;
+                }
+                ++count;
+                GeoCoord start(lat1, lon1);
+                GeoCoord end(lat2, lon2);
+                StreetSegment forward(start, end, street);
+                StreetSegment rev(end, start, street);
+                vector<StreetSegment> *ptr;
+                ptr=m_map.find(start);
+                if(ptr)
+                {
+                    ptr->push_back(forward);
+                }
+                else
+                {
+                    std::vector<StreetSegment> v;
+                    v.push_back(forward);
+                    m_map.associate(start, v);
+                }
+
+                
+                ptr=m_map.find(end);
+                if(ptr)
+                {
+                    ptr->push_back(rev);
+                }
+                else
+                {
+                    std::vector<StreetSegment> v;
+                    v.push_back(rev);
+                    m_map.associate(end, v);
+                }
+                
+            }
+        }
+        else
+            return false;
+
+        
+        //std::vector<StreetSegment> v;
+        //typename std::vector<StreetSegment>::const_iterator it;
+        //for (it=ptr->begin() ;it!=ptr->end();it++)
+         //   v.push_back(*it);
+        //v.push_back(forward);
+        //m_map.associate(start, v);
+        //cout << street <<endl;
+        //cout << numSeg <<endl;
+        
+        //cout << lat1 << lon1 << lat2 << lon2 <<endl;
+        //cout<<m_map.size()<<endl;
+    }
+    return true;
+      // Delete this line and implement this function correctly
 }
 
 bool StreetMapImpl::getSegmentsThatStartWith(const GeoCoord& gc, vector<StreetSegment>& segs) const
 {
+    
+    std::vector<StreetSegment>const *ptr=m_map.find(gc);
+    if(ptr)
+    {
+        std::vector<StreetSegment>::const_iterator it;
+        for (it=ptr->begin() ;it!=ptr->end();it++)
+        {
+            segs.push_back(*it);
+            //cout<< (*it).start.latitudeText<< (*it).start.longitudeText <<endl;
+            //cout<< (*it).end.latitudeText<< (*it).end.longitudeText <<endl;
+        }
+        return true;
+    }
     return false;  // Delete this line and implement this function correctly
 }
 

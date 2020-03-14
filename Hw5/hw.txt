@@ -1,0 +1,191 @@
+Austin Wang
+605 381 322
+
+Homework 5:
+
+
+1.
+
+a.
+
+	50
+		20
+			10
+				XX
+				15
+			40
+				30
+					25
+					34
+				XX
+		60
+			XX
+			70
+				65
+				80
+					76
+					XX
+
+b.
+
+in-order traversal:
+
+10
+15
+20
+25
+30
+34
+40
+50
+60
+65
+70
+76
+80
+
+pre-order:
+
+50
+20
+10
+15
+40
+30
+25
+34
+60
+70
+65
+80
+76
+
+Post-order:
+
+15
+10
+25
+34
+30
+40
+20
+65
+76
+80
+70
+60
+50
+
+
+
+
+c. Deletion of node 30 then node 20
+	50
+		25
+			10
+				XX
+				15
+			40
+				34
+				XX
+		60
+			XX
+			70
+				65
+				80
+					76
+					XX
+
+2.
+
+a.
+
+struct Node
+{
+	Node(int data)
+	{
+		m_data=data;
+		m_lchild=nullptr;
+		m_rchild=nullptr;
+		m_parent=nullptr;
+	}
+
+	int m_data;
+	Node *m_lChild;
+	Node *m_rChild;
+	Node *m_parent;
+}
+
+b
+
+void insertNode(Node *new, Node *parent)
+{
+	if new==nullptr or parent==nullptr
+		//shouldn't happen if we are given working node/parent
+		return
+	if new value greater than (or equal to) current parent value 
+		if parent's right child is nullptr
+			set rChild = new
+			set *new's m_parent to point at parent
+		else
+			call itself using current parent's right child for parent
+	else
+		if parent's left child is nullptr 
+            set lChild = new
+            set *new's m_parent to point at parent
+        else
+            call itself using current parent's left child for parent
+}
+
+3.
+
+a. 
+
+	7
+		3
+			0
+			2
+		5
+			4
+			x
+
+b.
+
+In an array, the above heap would be represented like so:
+735024
+[7,3,5,0,2,4]
+
+c.
+
+[5,3,4,0,2]
+
+4.
+
+a. O(C + Log S)
+
+b. O(Log C + S)
+
+c. O(Log C + Log S)
+
+d. O(Log S)
+   O(C+ Log S) -worst case
+
+e. O(1) 
+   O(C + S) -worst case
+
+f. O(Log C + S)
+
+g. O(S log S) 
+   O(C + S log S) -worst case
+
+h. O(C * Log S)
+
+5.
+
+b. There would be no way to know which node of the class hierarchy one is on.
+If it's forced to be recursive, and you can't pass in the path, it will be
+running the same code over and over. There wouldn't be any point to making it 
+recursive and it wouldn't be possible. If the recursive function can't pass 
+a different path to itself, it can't traverse and therefore we wouldn't be able 
+to solve this problem. It would be perpetually stuck on the same node and you
+wouldn't be able to print any of the subclasses.

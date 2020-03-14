@@ -13,9 +13,59 @@ bool parseDelivery(string line, string& lat, string& lon, string& item);
 int main(int argc, char *argv[])
 {
     ExpandableHashMap<GeoCoord, string> a;
-    GeoCoord g;
-    a.associate(g, "asdf");
-    a.associate(g, "asdfa");
+    GeoCoord an("123","321");
+    GeoCoord b("1","2");
+    GeoCoord c("2","1");
+    GeoCoord d("3","4");
+    GeoCoord e("0","4");
+    GeoCoord f("1","4");
+    a.associate(an, "asdf");
+    a.associate(b, "basdfa");
+    a.associate(c, "casdfa");
+    a.associate(d, "dasdfa");
+    a.associate(e, "asdfad");
+    a.associate(f, "asdfad");
+
+    //a.reset();
+    //cout <<a.find(c);
+    //cout<<a.size();
+    StreetMap smTest;
+    smTest.load("/Users/austinwang/Desktop/CS32/Project4/Project4/mapdata.txt");
+    GeoCoord test("34.0724746", "-118.4923463");
+    GeoCoord test2("34.0731003", "-118.4931016");
+    GeoCoord test3("34.0732851", "-118.4931016");
+    GeoCoord test4("34.0736122", "-118.4927669");
+    
+    PointToPointRouter ptp(&smTest);
+    std::list<StreetSegment> route;
+    double dist;
+    
+
+    GeoCoord d1("34.0625329", "-118.4470263");
+    GeoCoord d2("34.0636671", "-118.4461842");
+    
+    
+    ptp.generatePointToPointRoute(d1, d2, route, dist);
+    std::list<StreetSegment>::iterator lit;
+    for (lit=route.begin() ;lit!=route.end();lit++)
+    {
+        std::cout<<(*lit).start.latitudeText<<(*lit).start.longitudeText<<std::endl;
+        std::cout<<(*lit).end.latitudeText<<(*lit).end.longitudeText<<std::endl;
+        std::cout<<dist<<std::endl;
+    }
+    
+    
+    
+    
+    
+    vector<StreetSegment> v;
+    smTest.getSegmentsThatStartWith(test3, v);
+    std::vector<StreetSegment>::const_iterator it;
+    //for (it=v.begin() ;it!=v.end();it++)
+    //    std::cout<<(*it).end.latitudeText<<(*it).end.longitudeText<<endl;
+    
+    
+    
     
     
     

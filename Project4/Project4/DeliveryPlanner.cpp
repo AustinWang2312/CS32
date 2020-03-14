@@ -1,5 +1,6 @@
 #include "provided.h"
 #include <vector>
+#include <string>
 using namespace std;
 
 class DeliveryPlannerImpl
@@ -12,14 +13,23 @@ public:
         const vector<DeliveryRequest>& deliveries,
         vector<DeliveryCommand>& commands,
         double& totalDistanceTravelled) const;
+private:
+    const StreetMap *m_sm;
+    const PointToPointRouter *m_ptpr;
+    
+    string getDir(double dir) const;
 };
 
 DeliveryPlannerImpl::DeliveryPlannerImpl(const StreetMap* sm)
+
 {
+    m_sm=sm;
+    m_ptpr=new PointToPointRouter(sm);
 }
 
 DeliveryPlannerImpl::~DeliveryPlannerImpl()
 {
+    delete m_ptpr;
 }
 
 DeliveryResult DeliveryPlannerImpl::generateDeliveryPlan(
@@ -28,8 +38,93 @@ DeliveryResult DeliveryPlannerImpl::generateDeliveryPlan(
     vector<DeliveryCommand>& commands,
     double& totalDistanceTravelled) const
 {
-    return NO_ROUTE;  // Delete this line and implement this function correctly
+    //optimize const vector<DeliveryRequest>& deliveries
+    std::list<StreetSegment> deliRoute;
+    std::vector<DeliveryRequest>::const_iterator it;
+    GeoCoord start=depot;
+    for(it=deliveries.begin();it!=deliveries.end();++it)
+    {
+        DeliveryResult result= m_ptpr->generatePointToPointRoute(start, (*it).location, deliRoute,totalDistanceTravelled);
+        if(result!=DELIVERY_SUCCESS)
+            return result;
+        start=(*it).location;
+    
+        
+        
+        std::list<StreetSegment>::iterator lit;
+        for(lit=deliRoute.begin();lit!=deliRoute.end();)
+        {
+            string currentStreet=(*lit).name;
+            
+            StreetSegment prev;
+            double dir=angleOfLine(*lit);
+            string direction=getDir(dir);
+            double segmentdist=0;
+            while((*lit).name==currentStreet)
+            {
+                segmentdist += distanceEarthMiles((*lit).start, (*lit).end);
+                prev=*lit;
+                ++lit;
+            }
+            DeliveryCommand proceed;
+            proceed.initAsProceedCommand(direction, currentStreet, segmentdist);
+            commands.push_back(proceed);
+            
+            if(prev.end==deliRoute.back().end)
+            {
+                DeliveryCommand mkdelivery;
+                mkdelivery.initAsDeliverCommand((*it).item);
+                commands.push_back(mkdelivery);
+                break;
+            }
+            else
+            {
+                double turnAngle=angleBetween2Lines(prev, *lit);
+                string nextStreet=(*lit).name;
+                DeliveryCommand turn;
+                string turnDirection;
+                if(turnAngle<1 || turnAngle>359)
+                {
+                    continue;
+                }
+                if(turnAngle>=1 && turnAngle<180)
+                    turnDirection="left";
+                if(turnAngle<=359 && turnAngle>=180)
+                    turnDirection="right";
+                turn.initAsTurnCommand(turnDirection, nextStreet);
+                commands.push_back(turn);
+            }
+        }
+    }
+    return DELIVERY_SUCCESS;  // Delete this line and implement this function correctly
 }
+
+string DeliveryPlannerImpl::getDir(double dir) const
+{
+    string direction;
+    if(0<=dir && dir<22.5)
+        direction="east";
+    else if(dir<67.5)
+        direction="northeast";
+    else if(dir<112.5)
+        direction="north";
+    else if(dir<157.5)
+        direction="northwest";
+    else if(dir<202.5)
+        direction="west";
+    else if(dir<247.5)
+        direction="southwest";
+    else if(dir<292.5)
+        direction="south";
+    else if(dir<337.5)
+        direction="southeast";
+    else if(dir<360)
+        direction="east";
+    
+    return direction;
+}
+
+
 
 //******************** DeliveryPlanner functions ******************************
 
