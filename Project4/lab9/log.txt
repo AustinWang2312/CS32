@@ -1,0 +1,87 @@
+Austin Wang
+605 381 322
+
+Lab 9:
+
+This is a log and will not be annotated as well as a regular lab.
+
+Steps taken:
+
+Step 1:
+From our local computer:
+ssh-keygen
+
+Results:
+"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/austinwang/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/austinwang/.ssh/id_rsa.
+Your public key has been saved in /Users/austinwang/.ssh/id_rsa.
+The key fingerprint is:
+SHA256:HRzhsQkjmC9/+8xnaU6+v/7Wb/HR/iRT6MpphOF+5g4 austinxwang@s-164-67-124-200
+The key's randomart image is:
+***REDACTED for safety purposes***
+"
+
+Step 2:
+ssh-copy-id -i austinx@lnxsrv09.seas.ucla.edu
+
+Results:
+"
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/Users/austinwang/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+austinx@lnxsrv09.seas.ucla.edu's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'austinx@lnxsrv09.seas.ucla.edu'"
+and check to make sure that only the key(s) you wanted were added.
+"
+
+Step 3:
+ssh-add
+
+Results:
+"
+Identity added: /Users/austinwang/.ssh/id_rsa (austinwang@Austins-MacBook-Pro.local)
+"
+
+Step 4 (quick test):
+ssh austinx@lnxsrv09.seas.ucla.edu
+
+Result:
+Successfully log in without prompting password
+
+
+Step 5 Port Forwarding:
+From local computer:
+ssh -X austinx@lnxsrv09.seas.ucla.edu
+
+Result:
+logged in successfully without prompting password
+
+Step 6:
+xeyes
+
+Result:
+opens up a pair of eyeballs that track my mouse movement.
+
+Step 7 daisy chain:
+ssh -A -t austinx@lnxsrv09.seas.ucla.edu ssh -A -t austinx@lnxsrv08.seas.ucla.edu
+
+*Note I used srv9 and 8 for the daisy chain example instead of 7 to 9, for the sake of
+consistency. (I started the process with lnxsrv09)
+
+Result:
+Successfully connects to lnxsrv08 with no password prompt
+
+when I Control-D:
+"Goodbye.
+Connection to lnxsrv08.seas.ucla.edu closed.
+Connection to lnxsrv09.seas.ucla.edu closed.
+"
+
+

@@ -1,0 +1,39 @@
+Austin Wang
+605 381 322
+
+Short log of commands (for my reference):
+gpg2 is now default gpg and can be invoked with "gpg" instead of "gpg2"
+
+
+brew install gpg
+gpg --gen-key
+gpg --list-keys
+gpg --armor --output hw-pubkey.asc --export Austin
+gpg --output aus.sig --detach-sig hw-pubkey.asc
+gpg --verify aus.sig hw-pubkey.asc
+
+btw I used the email videogamer274@gmail.com as a throwaway.
+
+1. Even if the other teams had been observing all the bytes going across the network it wouldn't
+matter because the private keys of both machines wouldn't be sent across the network. Only the
+public keys would be sent, but this still means that only the machine with the private key can 
+decrypt the data. Therefore in each session, when the two machines decide on a symmetric key, any
+attacker with only a public key can't do anything. 
+	(1): If the other teams had tapped the keyboards after completion of all the client-server 
+setup, it wouldn't matter too much if the hackers weren't very advanced. Other than just seeing 
+what you type on your keyboard, it wouldn't compromise the network itself. Attackers would be able
+to access what you are currently trying to do, but they wouldn't be able to access the remote 
+machine's password because ssh-agent allows you to forgo typing your password to remotely connect. 
+	(2): If they literally had access to how your computer boots, the network is done for. 
+This means that your machine's private key could potentially be sent out the second you generate
+your private key. Everything you do could be remotely recorded. The remote machine could easily
+be accessed given that the attacker now has the private key and could pretend to be your machine.
+
+2. The gpg2 --verify command doesn't really verify that I personally created the file
+because it isn't intended to for a detached signature. Both the public key and the signature file
+need to be given to a public user in order for them to verify a detatched signature. 
+If we wanted to personally verify that I was the one who created the file, I wouldn't have 
+created a detached signature. I would have used the --sign option to create a single signed doc 
+that one could verify. This would work unless my private key was compromised. 
+Unlike a detached signature, only a public signature file is required to verify as opposed to 
+a public signature AND publicly available document file.
